@@ -1,0 +1,167 @@
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  padding: 1rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  color: white;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Hamburger button */
+.hamburger {
+  width: 30px;
+  height: 22px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  animation: slideDown 0.3s ease forwards;
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;
+  background: white;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Hamburger open animation */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Desktop menu */
+.nav-items {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+/* Mobile menu hidden by default */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  margin-top: 1rem;
+  padding: 1rem;
+  list-style: none;
+  border-radius: 12px;
+  animation: slideDown 0.3s ease forwards;
+  align-items: center;
+}
+
+.mobile-menu li,
+.nav-items li {
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 3px; /* space for underline */
+}
+
+/* Sparkly gradient underline effect */
+.nav-items li::after,
+.mobile-menu li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, #00c6ff, #0072ff, #8e2de2);
+  background-size: 200%;
+  transition: width 0.3s ease;
+}
+
+.nav-items li:hover::after,
+.mobile-menu li:hover::after {
+  width: 100%;
+  animation: gradientShift 1s linear infinite;
+}
+
+/* Shimmer animation for gradient */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Slide-down animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-menu li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-items {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .mobile-menu.show {
+    display: flex;
+  }
+}
+
+.nav-items a,
+.mobile-menu a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-items a:visited,
+.mobile-menu a:visited {
+  color: inherit;
+}
+
+.nav-items li.active::after,
+.mobile-menu li.active::after {
+  width: 100%;
+  animation: gradientShift 1s linear infinite;
+}
+
+.nav-items li.active,
+.mobile-menu li.active {
+  font-weight: bold;
+}

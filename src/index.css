@@ -1,0 +1,421 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* ---------- Theme & Resets ---------- */
+:root {
+  --bg: #0b0c14;
+  --card: #0e101a;
+  --text: #e9edf4;
+  --muted: #a7b1c2;
+  --line: rgba(255, 255, 255, 0.08);
+  --accent: #76e4f7;
+  --accent-2: #8a7dff;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f7f9fc;
+    --card: #ffffff;
+    --text: #0e1117;
+    --muted: #475569;
+    --line: rgba(2, 6, 23, 0.08);
+    --shadow: 0 20px 40px rgba(2, 6, 23, 0.1);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+.About {
+  isolation: isolate;
+}
+body,
+html {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  /* background-color: black; */
+  color: #ffffff;
+}
+.color {
+  color: white;
+}
+
+.h1 {
+  font-size: 100px;
+  font-weight: bolder;
+  margin: 0;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  width: 53%;
+  justify-content: space-around;
+}
+
+.top p {
+  flex-basis: 300px;
+}
+
+.btn {
+  /* text-decoration: none; */
+  color: white;
+  align-self: center;
+}
+
+.About {
+  display: block;
+  padding: clamp(24px, 4vw, 48px);
+  background: radial-gradient(
+      1200px 600px at 10% -20%,
+      rgba(118, 228, 247, 0.15),
+      transparent 60%
+    )
+    var(--bg);
+  color: var(--text);
+}
+
+.about-card {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0.02)
+    ),
+    var(--card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  padding: clamp(20px, 4vw, 36px);
+}
+
+/* Ambient accent blobs */
+.about-accent {
+  position: absolute;
+  inset: auto;
+  width: 420px;
+  height: 420px;
+  filter: blur(60px);
+  opacity: 0.35;
+  pointer-events: none;
+  background: radial-gradient(closest-side, var(--accent), transparent 70%);
+  transform: translateZ(0);
+}
+.about-accent--a {
+  top: -140px;
+  left: -120px;
+}
+.about-accent--b {
+  right: -160px;
+  bottom: -160px;
+  background: radial-gradient(closest-side, var(--accent-2), transparent 70%);
+}
+
+/* ---------- Grid ---------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(20px, 4vw, 40px);
+  align-items: center;
+}
+@media (min-width: 960px) {
+  .about-grid {
+    grid-template-columns: 1.25fr 1fr;
+  }
+}
+
+/* ---------- Typography ---------- */
+.about-eyebrow {
+  display: inline-block;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+
+.about-title {
+  margin: 12px 0 10px;
+  font-size: clamp(1.8rem, 3vw + 1rem, 3rem);
+  line-height: 1.15;
+  font-weight: 800;
+}
+.title-underline {
+  position: relative;
+  white-space: nowrap;
+  background: linear-gradient(
+    90deg,
+    rgba(118, 228, 247, 0.25),
+    rgba(138, 125, 255, 0.25)
+  );
+  box-decoration-break: clone;
+  padding: 0 0.2em;
+  border-radius: 8px;
+}
+
+.about-intro,
+.about-more {
+  color: var(--muted);
+  font-size: clamp(1rem, 0.4vw + 0.9rem, 1.1rem);
+  line-height: 1.8;
+  margin: 10px 0 0;
+}
+
+/* ---------- Bullets ---------- */
+.about-bullets {
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+}
+.about-bullets li {
+  position: relative;
+  padding-left: 32px;
+}
+.about-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  background: conic-gradient(
+    from 0turn,
+    var(--accent),
+    var(--accent-2),
+    var(--accent)
+  );
+  mask: radial-gradient(circle at 50% 50%, #0000 6px, #000 7px);
+  -webkit-mask: radial-gradient(circle at 50% 50%, transparent 6px, #000 7px);
+  opacity: 0.9;
+}
+
+/* ---------- CTAs ---------- */
+.about-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.85rem 1.1rem;
+  border-radius: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  color: var(--text);
+  transition: transform 0.18s ease, background 0.18s ease,
+    border-color 0.18s ease;
+  will-change: transform;
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn:active {
+  transform: translateY(0);
+}
+.btn--primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #010409;
+  border-color: transparent;
+}
+.btn--ghost {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* ---------- Meta Chips ---------- */
+.tech-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.tech-icon {
+  font-size: 2.5rem;
+  color: white;
+  padding: 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+}
+
+.tech-icon:hover {
+  transform: translateY(-4px) scale(1.1);
+  color: var(--hover-color);
+  box-shadow: 0 8px 20px var(--hover-color);
+}
+
+/* ---------- Portrait ---------- */
+.about-portrait {
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  min-height: 320px;
+}
+.about-portrait img {
+  width: min(100%, 420px);
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 28px;
+  z-index: 2;
+  position: relative;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Conic gradient ring behind the photo */
+.portrait-ring {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: min(92%, 440px);
+  height: min(92%, 440px);
+  border-radius: 32px;
+  background: radial-gradient(
+      120% 120% at 10% 10%,
+      rgba(255, 255, 255, 0.14),
+      transparent 55%
+    ),
+    conic-gradient(from 0turn, var(--accent), var(--accent-2), var(--accent));
+  filter: blur(12px);
+  opacity: 0.35;
+  z-index: 1;
+}
+
+/* Float animation for a subtle premium feel */
+@keyframes floaty {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.2deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+.about-portrait img {
+  animation: floaty 6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .about-portrait img {
+    animation: none;
+  }
+  .about-accent {
+    display: none;
+  }
+}
+
+/* ---------- Layout Tweaks ---------- */
+.about-content {
+  text-align: left;
+}
+@media (max-width: 768px) {
+  .about-content {
+    text-align: left;
+  }
+}
+
+/* ---------- Nice focus states ---------- */
+a:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 14px;
+}
+
+@media (max-width: 1024px) {
+  .about-title {
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+  }
+  .about-intro,
+  .about-more {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .btn {
+    padding: 0.75rem 1.05rem;
+    font-size: 0.95rem;
+  }
+  .tech-icon {
+    font-size: 2.2rem;
+    padding: 8px;
+  }
+}
+
+/* Mobile (768px and down) */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr; /* Stack vertically */
+  }
+  .about-card {
+    padding: 18px;
+  }
+  .about-title {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+  }
+  .about-intro,
+  .about-more {
+    font-size: 0.95rem;
+  }
+  .about-bullets {
+    gap: 0.6rem;
+  }
+  .about-bullets li {
+    padding-left: 26px;
+  }
+  .btn {
+    padding: 0.65rem 1rem;
+    font-size: 0.9rem;
+  }
+  .tech-icons {
+    gap: 10px;
+  }
+  .tech-icon {
+    font-size: 1.8rem;
+    padding: 6px;
+  }
+  .about-portrait img {
+    width: min(100%, 300px);
+  }
+}
+
+/* Small mobile (480px and down) */
+@media (max-width: 480px) {
+  .about-title {
+    font-size: clamp(1.2rem, 5vw, 1.6rem);
+  }
+  .about-intro,
+  .about-more {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .btn {
+    font-size: 0.85rem;
+    padding: 0.55rem 0.85rem;
+  }
+  .tech-icon {
+    font-size: 1.5rem;
+    padding: 5px;
+  }
+  .about-card {
+    padding: 14px;
+  }
+}

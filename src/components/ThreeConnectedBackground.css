@@ -1,0 +1,32 @@
+/* Full viewport, behind everything, pointer-free */
+.three-connected-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* behind your content */
+  pointer-events: none; /* never capture pointer events */
+  overflow: hidden;
+  isolation: isolate;
+  background: #000; /* default; can be overridden by prop */
+}
+
+/* optional slight overlay for depth (unobtrusive) */
+.three-connected-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      40% 30% at 15% 10%,
+      rgba(0, 180, 160, 0.06),
+      transparent 20%
+    ),
+    radial-gradient(
+      30% 20% at 85% 80%,
+      rgba(150, 80, 255, 0.05),
+      transparent 20%
+    );
+  pointer-events: none;
+  mix-blend-mode: screen;
+  z-index: 0;
+}

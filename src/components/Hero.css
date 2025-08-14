@@ -1,0 +1,206 @@
+.hero-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 2rem 5%;
+  background: transparent;
+  color: white;
+  gap: 2rem;
+  flex-wrap: wrap; /* allow items to wrap on small screens */
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 500px;
+  width: 100%;
+  word-wrap: break-word;
+  flex: 1 1 100%; /* grow/shrink on mobile */
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.highlight {
+  background: linear-gradient(90deg, #00c6ff, #0072ff, #8e2de2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.role {
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+.hero-desc {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #94a3b8;
+}
+
+.hero-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #67e8f9, #8b5cf6);
+  color: white;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.hero-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Right Side Icons */
+/* Right Side Icons */
+.hero-right {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  max-width: 600px; /* increased to fit 6 icons */
+  flex: 1 1 100%;
+  margin-top: 2rem;
+}
+
+/* Individual icon styling */
+.icon {
+  flex: 1 1 80px; /* shrink/grow with available space */
+  max-width: 100px;
+  aspect-ratio: 1/1; /* keep perfect square */
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Colors */
+.html {
+  color: #f97316;
+}
+.css {
+  color: #3b82f6;
+}
+.js {
+  color: #facc15;
+}
+.react {
+  color: #38bdf8;
+}
+.react-native {
+  color: #61dafb;
+}
+.node {
+  color: #3c873a;
+}
+
+/* Responsive adjustments */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .icon {
+    width: 90px;
+    height: 90px;
+    font-size: 1rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero-right {
+    max-width: 100%; /* no fixed width */
+    justify-content: center;
+  }
+  .icon {
+    width: 80px;
+    height: 80px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .icon {
+    width: 70px;
+    height: 70px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Responsive: Mobile-first adjustments */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-desc {
+    font-size: 1rem;
+  }
+  .icon {
+    width: 80px;
+    height: 80px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 3%;
+    min-height: auto; /* let content define height */
+  }
+
+  .glass-card {
+    max-width: 100%;
+  }
+
+  .hero-right {
+    margin-top: 2rem;
+    gap: 0.8rem;
+  }
+
+  .hero-btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.6rem;
+  }
+  .role {
+    display: block;
+    font-size: 0.9rem;
+  }
+  .hero-desc {
+    font-size: 0.9rem;
+  }
+  .icon {
+    width: 70px;
+    height: 70px;
+    font-size: 0.9rem;
+  }
+  .hero-btn {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.85rem;
+  }
+}
