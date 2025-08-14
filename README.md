@@ -8,7 +8,7 @@
 ## 👋 About Me
 
 Hi, I'm **Asad Nawaz**, a passionate **Front-End & React Developer** with experience in building responsive, user-friendly web applications and mobile apps.  
-I’m currently pursuing **BSc Computer Science** and have hands-on experience with **React, React Native, and REST APIs**. I enjoy transforming Figma designs into pixel-perfect websites and optimizing web performance.
+I’m a **BSc Computer Science** graduate and have hands-on experience with **React, React Native, and REST APIs**. I enjoy transforming Figma designs into pixel-perfect websites and optimizing web performance.
 
 I’m always eager to learn new technologies, improve my coding skills, and contribute to meaningful digital solutions.
 
@@ -26,7 +26,7 @@ I’m always eager to learn new technologies, improve my coding skills, and cont
 
 ## 🎓 Education
 
-- **BSc Computer Science** – Current  
+- **BSc Computer Science** – UMT, LAHORE (06/2021 - 07/2025)  
 - **High School Diploma** – Sadiq Public School, Bahawalpur (04/2016 - 06/2021)  
 
 ---
@@ -73,7 +73,7 @@ I’m always eager to learn new technologies, improve my coding skills, and cont
 - **Email:** asad786786786nawaz@gmail.com  
 - **Portfolio:** [https://asadnawaz.fun](https://asadnawaz.fun)  
 - **GitHub:** [https://github.com/AsadNawaZ77](https://github.com/AsadNawaZ77)  
-- **LinkedIn:** [Your LinkedIn URL]  
+- **LinkedIn:** [https://www.linkedin.com/in/asad-nawaz-509747248/] 
 
 ---
 
