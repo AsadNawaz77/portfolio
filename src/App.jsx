@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "../src/permissions/disableInspect";
 import Navbar from "./components/Navbar";
 import "./index.css";
 import Testimonials from "./components/Testimonials";
