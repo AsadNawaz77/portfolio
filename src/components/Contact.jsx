@@ -10,14 +10,7 @@ export default function Contact() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    console.log(
-      import.meta.env.VITE_EMAIL_PUBLIC_KEY,
-      import.meta.env.VITE_REACT_APP_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_REACT_APP_EMAILJS_TEMPLATE_ID_1,
-      import.meta.env.VITE_REACT_APP_EMAILJS_TEMPLATE_ID_2
-    );
-
-    console.log(formRef.current);
+    
     emailjs
       .sendForm(
         import.meta.env.VITE_REACT_APP_EMAILJS_SERVICE_ID,
@@ -33,7 +26,7 @@ export default function Contact() {
             formRef.current,
             import.meta.env.VITE_EMAIL_PUBLIC_KEY
           );
-          console.log(result.text);
+         
           toast.success("✅ Thank you! Your message has been sent.");
           formRef.current.reset();
         },
