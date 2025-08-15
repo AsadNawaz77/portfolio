@@ -18,6 +18,7 @@ import {
 
 import { SiTailwindcss } from "react-icons/si";
 import Footer from "./components/Footer";
+import { ToastContainer } from "react-toastify";
 function App() {
   const [activeCardIndex, setActiveCardIndex] = useState(0);
   const cards = [
@@ -214,6 +215,19 @@ function App() {
       <Testimonials />
       <Contact />
       <Footer />
+
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </>
   );
 }
