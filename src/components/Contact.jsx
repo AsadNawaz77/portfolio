@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 
 export default function Contact() {
   const formRef = useRef();
-  const [status, setStatus] = useState("");
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -83,7 +82,6 @@ export default function Contact() {
               <span>Send Message</span>
             </button>
 
-            {status && <p className="status-message">{status}</p>}
           </form>
 
           {/* SIDE CARD */}
