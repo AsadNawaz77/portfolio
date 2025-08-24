@@ -32,7 +32,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-content">
-        <div className="logo">MyPortfolio</div>
+        <div className="logo"> Asad<span style={{ color: "#38bdf8" }}>Nawaz</span></div>
 
         {/* Desktop Menu */}
         <ul className="nav-items">
