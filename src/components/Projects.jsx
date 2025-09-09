@@ -131,7 +131,7 @@ const Projects = ({ projects = [] }) => {
                       className="view-btn"
                       href={project.links || project.repo || "#"}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="nofollow noopener noreferrer"
                     >
                       View Project →
                     </a>
