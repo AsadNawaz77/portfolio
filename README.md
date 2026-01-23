@@ -70,8 +70,8 @@ I’m always eager to learn new technologies, improve my coding skills, and cont
 
 ## 📫 Contact Me
 
-- **Email:** asad786786786nawaz@gmail.com  
-- **Portfolio:** [https://asadnawaz.fun](https://asadnawaz.fun)  
+- **Email:** asad223nawaz@gmail.com  
+- **Portfolio:** [https://asadnawaz.online](https://asadnawaz.online)  
 - **GitHub:** [https://github.com/AsadNawaZ77](https://github.com/AsadNawaZ77)  
 - **LinkedIn:** [https://www.linkedin.com/in/asad-nawaz-509747248/] 
 
