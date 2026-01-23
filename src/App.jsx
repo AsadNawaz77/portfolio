@@ -41,14 +41,14 @@ function App() {
     },
     {
       id: 3,
-      h3: "Empower Solano – Thinkific Platform",
+      h3: "Empower Solano",
       img: "/2.png",
       content:
         "Built and customized a full online learning platform for Empower Solano using Thinkific. Integrated custom HTML, CSS, JS, and Liquid to enhance design and functionality, supporting community skill-building initiatives.",
       icons: [
         "https://cdn.prod.website-files.com/64be309a0c8ae7454454fcef/653932043d90a3fa696fd68a_liquid-logo-text.png",
         "/html.png",
-        "/css-3.png",
+        // "/css-3.png",
         // "/js.png",
         "https://www.fahimai.com/wp-content/uploads/2025/02/CTA.png",
       ],
