@@ -1,7 +1,7 @@
 # Asad Nawaz - Web & Mobile Developer
 
 [![GitHub followers](https://img.shields.io/github/followers/AsadNawaZ77?style=social)](https://github.com/AsadNawaZ77)
-[![Portfolio](https://img.shields.io/badge/Portfolio-asadnawaz.fun-blue)](https://asadnawaz.fun)
+[![Portfolio](https://img.shields.io/badge/Portfolio-asadnawaz.fun-blue)](https://asadnawaz.online)
 
 ---
 
