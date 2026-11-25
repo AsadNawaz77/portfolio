@@ -1,107 +1,82 @@
-import React, { useState, useEffect } from "react";
-import "./Navbar.css";
+import { useEffect, useState } from "react";
+import { FiMoon, FiSun } from "react-icons/fi";
+import { profile } from "../data";
 
-const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+const links = [
+  { href: "#work", label: "Work" },
+  { href: "#experience", label: "Experience" },
+  { href: "#skills", label: "Skills" },
+  { href: "#contact", label: "Contact" },
+];
 
-  const handleScroll = (id) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-    setMenuOpen(false);
-  };
+function getInitialDark() {
+  try {
+    const saved = localStorage.getItem("theme");
+    if (saved) return saved === "dark";
+  } catch {
+    /* storage unavailable */
+  }
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+}
+
+export default function Navbar() {
+  const [dark, setDark] = useState(getInitialDark);
 
   useEffect(() => {
-    const sections = document.querySelectorAll("section, div[id]");
-    const handleActiveLink = () => {
-      let current = "";
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 100;
-        if (window.scrollY >= sectionTop) {
-          current = section.getAttribute("id");
-        }
-      });
-      setActiveSection(current);
-    };
-    window.addEventListener("scroll", handleActiveLink);
-    return () => window.removeEventListener("scroll", handleActiveLink);
-  }, []);
+    document.documentElement.classList.toggle("dark", dark);
+    try {
+      localStorage.setItem("theme", dark ? "dark" : "light");
+    } catch {
+      /* storage unavailable */
+    }
+  }, [dark]);
 
   return (
-    <nav className="navbar">
-      <div className="navbar-content">
-        <div className="logo"> Asad<span style={{ color: "#38bdf8" }}>Nawaz</span></div>
-
-        {/* Desktop Menu */}
-        <ul className="nav-items">
-          <li
-            className={activeSection === "home" ? "active" : ""}
-            onClick={() => handleScroll("home")}
+    <header
+      className="sticky top-0 z-40 border-b backdrop-blur"
+      style={{
+        borderColor: "var(--line)",
+        background: "color-mix(in srgb, var(--bg) 85%, transparent)",
+      }}
+    >
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:rounded-md focus:bg-[var(--accent)] focus:px-3 focus:py-2 focus:text-white"
+      >
+        Skip to content
+      </a>
+      <nav
+        aria-label="Primary"
+        className="mx-auto flex max-w-5xl items-center justify-between px-5 py-3"
+      >
+        <a href="#top" className="text-sm font-semibold tracking-tight">
+          {profile.name}
+        </a>
+        <div className="flex items-center gap-1 sm:gap-3">
+          <ul className="hidden items-center gap-1 sm:flex">
+            {links.map((l) => (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  className="rounded-md px-3 py-1.5 text-sm transition-colors hover:text-[var(--text)]"
+                  style={{ color: "var(--muted)" }}
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <button
+            type="button"
+            onClick={() => setDark((d) => !d)}
+            aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
+            className="grid h-9 w-9 place-items-center rounded-md border transition-colors hover:bg-[var(--accent-soft)]"
+            style={{ borderColor: "var(--line)" }}
           >
-            Home
-          </li>
-          <li
-            className={activeSection === "About" ? "active" : ""}
-            onClick={() => handleScroll("About")}
-          >
-            About
-          </li>
-          <li
-            className={activeSection === "projects" ? "active" : ""}
-            onClick={() => handleScroll("projects")}
-          >
-            Projects
-          </li>
-          <li
-            className={activeSection === "contact" ? "active" : ""}
-            onClick={() => handleScroll("contact")}
-          >
-            Contact
-          </li>
-        </ul>
-
-        {/* Hamburger */}
-        <div
-          className={`hamburger ${menuOpen ? "open" : ""}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
+            {dark ? <FiSun aria-hidden /> : <FiMoon aria-hidden />}
+          </button>
         </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <ul className={`mobile-menu ${menuOpen ? "show" : ""}`}>
-        <li
-          className={activeSection === "home" ? "active" : ""}
-          onClick={() => handleScroll("home")}
-        >
-          Home
-        </li>
-        <li
-          className={activeSection === "About" ? "active" : ""}
-          onClick={() => handleScroll("About")}
-        >
-          About
-        </li>
-        <li
-          className={activeSection === "projects" ? "active" : ""}
-          onClick={() => handleScroll("projects")}
-        >
-          Projects
-        </li>
-        <li
-          className={activeSection === "contact" ? "active" : ""}
-          onClick={() => handleScroll("contact")}
-        >
-          Contact
-        </li>
-      </ul>
-    </nav>
+      </nav>
+    </header>
   );
-};
-
-export default Navbar;
+}

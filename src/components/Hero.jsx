@@ -1,96 +1,70 @@
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import "./Hero.css";
-import {
-  FaNodeJs,
-  FaReact,
-  FaBootstrap,
-  FaHtml5,
-  FaCss3Alt,
-  FaJsSquare,
-} from "react-icons/fa";
+import { FiArrowDownRight, FiDownload, FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
+import { profile } from "../data";
+import Reveal from "./Reveal";
 
-import { SiTailwindcss } from "react-icons/si";
-const Hero = () => {
-  const heroRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".hero-left", {
-        opacity: 0,
-        x: -50,
-        duration: 1,
-        ease: "power3.out",
-      });
-      gsap.from(".hero-right", {
-        opacity: 0,
-        x: 50,
-        duration: 1,
-        delay: 0.2,
-        ease: "power3.out",
-      });
-      gsap.from(".float-icon", {
-        y: 20,
-        repeat: -1,
-        yoyo: true,
-        duration: 2,
-        ease: "sine.inOut",
-        stagger: 0.3,
-      });
-    }, heroRef);
-    return () => ctx.revert();
-  }, []);
-  const handleScroll = (id) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-    setMenuOpen(false);
-  };
-  const tech = [
-    { icon: <FaNodeJs />, name: "Node.js", color: "#68A063" },
-    { icon: <FaReact />, name: "React", color: "#61DAFB" },
-    { icon: <FaReact />, name: "React Native", color: "#61DAFB" },
-    { icon: <FaBootstrap />, name: "Bootstrap", color: "#7952B3" },
-    { icon: <SiTailwindcss />, name: "Tailwind CSS", color: "#38BDF8" },
-    { icon: <FaHtml5 />, name: "HTML5", color: "#E34F26" },
-    { icon: <FaCss3Alt />, name: "CSS3", color: "#1572B6" },
-    { icon: <FaJsSquare />, name: "JavaScript", color: "#F7DF1E" },
-  ];
+export default function Hero() {
   return (
-    <section ref={heroRef} className="hero-container" id="home">
-      {/* Left side */}
-      <div className="hero-left">
-        <div className="glass-card">
-          <h1 className="hero-title">
-            Hi, I'm <span className="highlight">Asad</span> <br />
-            <span className="role">Frontend Web Developer</span>
-          </h1>
-          <p className="hero-desc">
-            I design and build responsive, modern, and engaging web applications
-            with stunning UI and smooth animations.
-          </p>
-          <li onClick={() => handleScroll("contact")} className="hero-btn">
-            Let’s Work Together →
-          </li>
-        </div>
-      </div>
-
-      {/* Right side */}
-      <div className="hero-right">
-        {tech.map((t, i) => (
-          <div
-            key={i}
-            className="tech-icon icon float-icon"
-            style={{ "--hover-color": t.color }}
-            title={t.name}
+    <section id="top" aria-labelledby="hero-title" className="mx-auto max-w-5xl px-5 pb-20 pt-20 sm:pt-28">
+      <Reveal>
+        <p
+          className="mb-5 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium"
+          style={{ borderColor: "var(--line)", color: "var(--muted)", background: "var(--surface)" }}
+        >
+          <span className="h-2 w-2 rounded-full bg-emerald-500" aria-hidden />
+          Open to remote roles
+        </p>
+      </Reveal>
+      <Reveal delay={0.05}>
+        <h1 id="hero-title" className="max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight sm:text-6xl">
+          {profile.name}
+          <span className="block" style={{ color: "var(--muted)" }}>
+            {profile.role}
+          </span>
+        </h1>
+      </Reveal>
+      <Reveal delay={0.1}>
+        <p className="mt-6 max-w-2xl text-lg" style={{ color: "var(--muted)" }}>
+          {profile.summary}
+        </p>
+      </Reveal>
+      <Reveal delay={0.15}>
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          <a
+            href={profile.cv}
+            download
+            className="inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+            style={{ background: "var(--accent)" }}
           >
-            {t.icon}
+            <FiDownload aria-hidden /> Download CV
+          </a>
+          <a
+            href="#work"
+            className="inline-flex items-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-medium transition-colors hover:bg-[var(--accent-soft)]"
+            style={{ borderColor: "var(--line)" }}
+          >
+            See my work <FiArrowDownRight aria-hidden />
+          </a>
+          <div className="ml-1 flex items-center gap-1">
+            {[
+              { href: profile.github, label: "GitHub", Icon: FiGithub },
+              { href: profile.linkedin, label: "LinkedIn", Icon: FiLinkedin },
+              { href: `mailto:${profile.email}`, label: "Email", Icon: FiMail },
+            ].map(({ href, label, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel="noopener noreferrer"
+                className="grid h-10 w-10 place-items-center rounded-lg transition-colors hover:bg-[var(--accent-soft)]"
+                style={{ color: "var(--muted)" }}
+              >
+                <Icon aria-hidden size={18} />
+              </a>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      </Reveal>
     </section>
   );
-};
-
-export default Hero;
+}

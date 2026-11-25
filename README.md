@@ -1,7 +1,7 @@
 # Asad Nawaz - Web & Mobile Developer
 
 [![GitHub followers](https://img.shields.io/github/followers/AsadNawaZ77?style=social)](https://github.com/AsadNawaZ77)
-[![Portfolio](https://img.shields.io/badge/Portfolio-asadnawaz.fun-blue)](https://asadnawaz.online)
+[![Portfolio](https://img.shields.io/badge/Portfolio-live-blue)](https://portfolio-asad-nawazs-projects-de7caf34.vercel.app)
 
 ---
 
@@ -71,7 +71,7 @@ I’m always eager to learn new technologies, improve my coding skills, and cont
 ## 📫 Contact Me
 
 - **Email:** asad223nawaz@gmail.com  
-- **Portfolio:** [https://asadnawaz.online](https://asadnawaz.online)  
+- **Portfolio:** [https://portfolio-asad-nawazs-projects-de7caf34.vercel.app](https://portfolio-asad-nawazs-projects-de7caf34.vercel.app)  
 - **GitHub:** [https://github.com/AsadNawaZ77](https://github.com/AsadNawaZ77)  
 - **LinkedIn:** [https://www.linkedin.com/in/asad-nawaz-509747248/] 
 
