@@ -59,8 +59,8 @@ export const projects = [
     kind: "Personal project, Play Store",
     mock: "voice",
     description:
-      "An app I designed, built and published on the Play Store myself, from the first screen to the store listing.",
-    stack: "React Native",
+      "Turns long WhatsApp voice notes into short bullet points. Share a voice note to the app and it transcribes and summarises it with AI. The full transcript is there when you want it. I designed, built and published it on the Play Store myself.",
+    stack: "React Native, AI transcription and summaries",
   },
   {
     id: "tickets",
@@ -80,16 +80,6 @@ export const projects = [
       "A point-of-sale system with an admin portal, CRM and ERP modules for a coffee business. Orders, stock and daily operations live in one place.",
     stack: "React, admin portal, POS",
     links: [{ label: "Open the admin portal", href: "https://rowaq-cloud-admin.netlify.app/#/login" }],
-  },
-  {
-    id: "school",
-    title: "School Mentor",
-    kind: "CES internship, web platform",
-    mock: "school",
-    description:
-      "A school management portal built in React and Redux. Refactoring the core components cut load times by 30%, and REST APIs feed the exam schedules and date sheets.",
-    stack: "React, Redux, Axios",
-    links: [{ label: "Visit School Mentor", href: "https://schoolmentor.ai/" }],
   },
   {
     id: "expenzo",
@@ -117,6 +107,24 @@ export const projects = [
     description:
       "An assistant that schedules meetings and starts calls from calendar events, so the day runs from one screen.",
     stack: "React Native, Node.js",
+  },
+  {
+    id: "leads",
+    title: "Lead reconciliation dashboard",
+    kind: "Client work, admin dashboard",
+    mock: "dash",
+    description:
+      "A Laravel and Livewire dashboard for a group of client stores. It checks each store's leads against HubSpot, Airtable and Google Ads, retries failed checks on a backoff schedule, and reconciles Klaviyo email opens.",
+    stack: "Laravel, Livewire, MySQL",
+  },
+  {
+    id: "customizer",
+    title: "Logo customizer",
+    kind: "Etsy, web tool",
+    mock: "logo",
+    description:
+      "A web tool where a buyer customises a logo I designed, then sees the result before they order. React on the front end, Laravel behind it.",
+    stack: "React, Laravel",
   },
   {
     id: "shopify",

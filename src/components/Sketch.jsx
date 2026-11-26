@@ -168,6 +168,42 @@ const art = {
       })}
     </>
   ),
+  dash: () => (
+    <>
+      <D>{R(20, 20, 54, 160)}</D>
+      {[40, 58, 76].map((y) => (
+        <D key={y}>{L(30, y, 64, y)}</D>
+      ))}
+      {[0, 1, 2].map((c) => (
+        <D key={c}>{R(88 + c * 76, 20, 68, 40)}</D>
+      ))}
+      {[78, 104, 130, 156].map((y, i) => (
+        <D key={y} className={i === 2 ? "hot" : ""}>
+          {R(88, y, 220, 20, 2)}
+        </D>
+      ))}
+    </>
+  ),
+  logo: () => (
+    <>
+      <D>{R(20, 20, 180, 160)}</D>
+      <D>
+        <circle cx="110" cy="90" r="44" pathLength="1" />
+        <path d="M84 104 L110 60 L136 104 Z" pathLength="1" />
+      </D>
+      <D className="hot">
+        <circle cx="110" cy="90" r="14" pathLength="1" />
+      </D>
+      {[0, 1, 2, 3].map((i) => (
+        <D key={i} className={i === 1 ? "hot" : ""}>
+          <circle cx={226 + (i % 2) * 36} cy={40 + Math.floor(i / 2) * 36} r="12" pathLength="1" />
+        </D>
+      ))}
+      {[124, 146, 168].map((y) => (
+        <D key={y}>{L(216, y, 296, y)}</D>
+      ))}
+    </>
+  ),
   store: () => (
     <>
       {[0, 1].flatMap((c) =>
