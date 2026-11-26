@@ -1,5 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import "@fontsource-variable/anybody/wdth.css";
+import "@fontsource-variable/schibsted-grotesk";
 import "./index.css";
 import App from "./App.jsx";
 
